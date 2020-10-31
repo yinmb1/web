@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>amis demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="https://houtai.baidu.com/v2/csssdk">  
+
+    <style>
+      html,
+      body,
+      .app-wrapper {
+        position: relative; 
+        width: 100%;
+        height: 100%;
+        margin: 0;  
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="app-wrapper"></div>
+    <script src="https://houtai.baidu.com/v2/jssdk"></script>
+    <script type="text/javascript">
+      (function () {
+        let amis = amisRequire('amis/embed');
+        let amisScoped = amis.embed('#root', {
+    "$schema": "https://houtai.baidu.com/v2/schemas/page.json#",
+    "type": "page",
+    "title": "",
+    "body": [
+        {
+            "type": "grid",
+            "columns": [
+                {
+                    "type": "image",
+                    "src": "https://internal-amis-res.cdn.bcebos.com/images/2020-1/1578395692722/4f3cb4202335.jpeg@s_0,w_216,l_1,f_jpg,q_80",
+                    "className": "b-t",
+                    "sm": 3,
+                    "xs": 11,
+                    "mode": false,
+                    "xsHidden": false,
+                    "lg": 8
+                },
+                {
+                    "type": "button-toolbar",
+                    "buttons": [
+                        {
+                            "type": "button",
+                            "label": "账单",
+                            "actionType": "dialog",
+                            "dialog": {
+                                "title": "系统提示",
+                                "body": "对你点击了"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "label": "关注",
+                            "actionType": "dialog",
+                            "dialog": {
+                                "title": "系统提示",
+                                "body": "对你点击了"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "label": "预警",
+                            "actionType": "dialog",
+                            "dialog": {
+                                "title": "系统提示",
+                                "body": "对你点击了"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "label": "消息",
+                            "actionType": "dialog",
+                            "dialog": {
+                                "title": "系统提示",
+                                "body": "对你点击了"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "label": "用户",
+                            "actionType": "dialog",
+                            "dialog": {
+                                "title": "系统提示",
+                                "body": "对你点击了"
+                            }
+                        }
+                    ],
+                    "xsOffset": 4,
+                    "xsPush": 9,
+                    "xsPull": 10,
+                    "xs": 4
+                }
+            ]
+        },
+        {
+            "type": "grid",
+            "columns": [
+                {
+                    "type": "tabs",
+                    "mode": "line",
+                    "tabs": [
+                        {
+                            "title": "我的接口",
+                            "body": [
+                                {
+                                    "type": "wrapper",
+                                    "size": "xs",
+                                    "className": "",
+                                    "body": [
+                                        {
+                                            "type": "nav",
+                                            "stacked": true,
+                                            "links": [
+                                                {
+                                                    "label": "企业工商数据查询",
+                                                    "to": "?id=1"
+                                                },
+                                                {
+                                                    "label": "工商数据查询",
+                                                    "children": [
+                                                        {
+                                                            "label": "查询2-1",
+                                                            "to": "?id=2-1"
+                                                        },
+                                                        {
+                                                            "label": "查询2-2",
+                                                            "to": "?id=2-2"
+                                                        },
+                                                        {
+                                                            "label": "查询2-3（disabled）",
+                                                            "disabled": true,
+                                                            "to": "?id=2-3"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "查询3",
+                                                    "to": "?id=3"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "title": "接口目录",
+                            "body": [
+                                {
+                                    "type": "wrapper",
+                                    "size": "xs",
+                                    "className": "",
+                                    "body": [
+                                        {
+                                            "type": "nav",
+                                            "stacked": true,
+                                            "links": [
+                                                {
+                                                    "label": "页面1",
+                                                    "to": "?id=1"
+                                                },
+                                                {
+                                                    "label": "页面2",
+                                                    "children": [
+                                                        {
+                                                            "label": "页面2-1",
+                                                            "to": "?id=2-1"
+                                                        },
+                                                        {
+                                                            "label": "页面2-2",
+                                                            "to": "?id=2-2"
+                                                        },
+                                                        {
+                                                            "label": "页面2-3",
+                                                            "disabled": true,
+                                                            "to": "?id=2-3"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "label": "页面3",
+                                                    "to": "?id=3"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "xs": 2
+                },
+                {
+                    "type": "container",
+                    "width": "20%",
+                    "body": [
+                        {
+                            "type": "form",
+                            "api": {
+                                 "method": "post",
+                                 "url": "https://kgapi.ruyi.ai/v3/stat/lawsuit/top5cause",
+                                 "headers": {
+                                      "X-API-Key": "idhOgepvtp6k5B02MJ0F23eZzEL3Q8OT6yo6iaiw"
+                             } },
+                            "title": "表单展示",
+                            "mode": "horizontal",
+                            "horizontal": {
+                                "left": 3,
+                                "right": 6,
+                                "offset": 2
+                            },
+                            "controls": [
+                                {
+                                    "type": "static",
+                                    "name": "names",
+                                    "label": "接口名称",
+                                    "value": "企业工商数据查询"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "type": "select",
+                                    "name": "type",
+                                    "label": "接口方法",
+                                    "inline": true,
+                                    "options": [
+                                        {
+                                            "label": "模糊搜索",
+                                            "value": 1
+                                        },
+                                        {
+                                            "label": "精准搜索  ",
+                                            "value": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "type": "radios",
+                                    "name": "radios",
+                                    "label": "请求方式",
+                                    "options": [
+                                        {
+                                            "label": "GET",
+                                            "value": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "type": "radios",
+                                    "name": "radios2",
+                                    "label": "返回格式",
+                                    "options": [
+                                        {
+                                            "label": "JSON",
+                                            "value": "JSON"
+                                        },
+                                        {
+                                            "label": "XML",
+                                            "value": "XML"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "type": "tpl",
+                                    "tpl": "<p>请求参数(query)</span></p>"
+                                },
+                                {
+                                    "type": "text",
+                                    "name": "keyword",
+                                    "label": "*KeyWord",
+                                    "placeholder": "请输入关键字"
+                                },
+                                {
+                                    "type": "text",
+                                    "name": "pageSize",
+                                    "label": "pageSize",
+                                    "placeholder": "每页条数"
+                                },
+                                {
+                                    "type": "text",
+                                    "name": "pageIndex",
+                                    "label": "pageIndex",
+                                    "placeholder": "页码"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "type": "text",
+                                    "name": "bodyJson",
+                                    "mode": "normal",
+                                    "label": "请求body"
+                                }
+                            ]
+                        }
+                    ],
+                    "className": "b-t",
+                    "sm": 4
+                },
+                {
+                    "type": "hbox",
+                    "columns": [
+                        {
+                            "type": "tabs",
+                            "mode": "line",
+                            "tabs": [
+                                {
+                                    "title": "文档",
+                                    "body": [
+                                        {
+                                            "type": "tpl",
+                                            "tpl": "内容1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "接口返回",
+                                    "api": "http://localhost:8080/product/t",
+                                    "body": [
+                                        {
+                                            "type": "json",
+                                            "title": "工商信息",
+                                            "source": "$rows",
+                                            "value": {
+                                                "a": "a",
+                                                "b": "b",
+                                                "c": {
+                                                    "d": "d"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "示例界面",
+                                    "body": [
+                                        {
+                                            "type": "iframe",
+                                            "src": "http://127.0.0.1:8086/visualization/top5",
+                                            "height": "400px"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "反馈",
+                                    "body": [
+                                        {
+                                            "type": "tpl",
+                                            "tpl": "内容"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "订购",
+                                    "body": [
+                                        {
+                                            "type": "tpl",
+                                            "tpl": "内容"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "$ref": "",
+                            "unmountOnExit": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "aside": [],
+    "messages": {},
+    "toolbar": []
+});
+      })();
+    </script>
+  </body>
+</html>

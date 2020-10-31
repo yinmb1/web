@@ -1,0 +1,123 @@
+    <!DOCTYPE html>
+    <html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <title>amis demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <link rel="stylesheet" href="https://houtai.baidu.com/v2/csssdk">  
+
+        <style>
+        html,
+        body,
+        .app-wrapper {
+            position: relative; 
+            width: 100%;
+            height: 100%;
+            margin: 0;  
+            padding: 0;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="root" class="app-wrapper"></div>
+        <script src="https://houtai.baidu.com/v2/jssdk"></script>
+        <script type="text/javascript">
+        (function () {
+            let amis = amisRequire('amis/embed');
+            let amisScoped = amis.embed('#root', {
+        "$schema": "https://houtai.baidu.com/v2/schemas/page.json#",
+        "type": "page",
+        "title": "cnRiskLens风险透镜",
+        "body": [
+            {   "name": "service1",
+                "className": "m-t",
+                "type": "crud",
+                "draggable": true,
+                "api": "http://10.0.48.46:8080/rist/company?name=${keywords}&page=${page}",
+                "syncLocation": false,
+                "title": "为你找到${count}家符合条件的企业",  
+                "columns": [
+                    {
+                        "name": "id",
+                        "label": "序号"
+                    },
+                    {
+                        "name": "name",
+                        "label": "公司名"
+                    },
+                    {
+                        "name": "legalPerson",
+                        "label": "法人",
+                        "placeholder": "-"
+                    },
+                    {
+                        "name": "legalPerson1",
+                        "label": "实际控制人",
+                        "placeholder": "-"
+                    },
+                    {
+                        "name": "registerCapital",
+                        "label": "注册资本",
+                        "placeholder": "-"
+                    },
+                    {
+                        "name": "registerDate",
+                        "label": "成立日期",
+                        "placeholder": "-"
+                    },
+                    {
+                        "name": "legalPerson1",
+                        "label": "企业集团",
+                        "placeholder": "-"
+                    },
+                    {
+                        "name": "legalPerson1",
+                        "label": "上市公司",
+                        "placeholder": "-"
+                    },
+                    {
+                        "name": "legalPerson1",
+                        "label": "城市",
+                        "placeholder": "-"
+                    },
+                    {
+                        "name": "legalPerson1",
+                        "label": "涉诉评级",
+                        "placeholder": "-"
+                    }
+                ]
+            }
+        ],
+        "toolbar": [
+            {
+                "type": "form",
+                "title": "条件输入",
+                "className": "m-t",
+                "wrapWithPanel": false,
+                "target": "service1",
+                "mode": "inline",
+                "controls": [
+                    {
+                        "type": "text",
+                        "name": "keywords",
+                        "placeholder": "关键字",
+                        "addOn": {
+                            "type": "button",
+                            "icon": "fa fa-search",
+                            "actionType": "submit",
+                            "level": "primary"
+                        }
+                    }
+                ]
+            }
+        ]
+    });
+        })();
+        </script>
+    </body>
+    </html>

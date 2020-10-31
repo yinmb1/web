@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>amis demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="/amis/sdk.css">  
+
+    <style>
+      html,
+      body,
+      .app-wrapper {
+        position: relative; 
+        width: 100%;
+        height: 100%;
+        margin: 0;  
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="app-wrapper"></div>
+    <script src="/amis/sdk.js"></script>
+    <script type="text/javascript">
+      (function () {
+        let amis = amisRequire('amis/embed');
+        let amisScoped = amis.embed('#root', {
+    "$schema": "https://houtai.baidu.com/v2/schemas/page.json#",
+    "type": "page",
+    "title": "首页 /监管违规预警/指标修订",
+    "body": [
+        {
+            "type": "crud",
+            "api": "https://houtai.baidu.com/api/sample?waitSeconds=1",
+            "columns": [
+                {
+                    "name": "id",
+                    "label": "指标名称",
+                    "type": "text"
+                },
+                {
+                    "name": "engine",
+                    "label": "比较方式"
+                },
+                {
+                    "name": "browser",
+                    "label": "阈值"
+                },
+                {
+                    "name": "platform",
+                    "label": "置信度"
+                },
+                {
+                    "name": "version",
+                    "label": "监管文本"
+                },
+                {
+                    "type": "operation",
+                    "label": "操作",
+                    "width": 100,
+                    "buttons": [
+                        {
+                            "type": "button",
+                            "icon": "fa fa-eye",
+                            "actionType": "dialog",
+                            "tooltip": "查看",
+                            "dialog": {
+                                "title": "查看",
+                                "body": {
+                                    "type": "form",
+                                    "controls": [
+                                        {
+                                            "type": "static",
+                                            "name": "engine",
+                                            "label": "Engine"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "static",
+                                            "name": "browser",
+                                            "label": "Browser"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "static",
+                                            "name": "platform",
+                                            "label": "Platform(s)"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "static",
+                                            "name": "version",
+                                            "label": "Engine version"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "static",
+                                            "name": "grade",
+                                            "label": "CSS grade"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "html",
+                                            "html": "<p>添加其他 <span>Html 片段</span> 需要支持变量替换（todo）.</p>"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "icon": "fa fa-pencil",
+                            "tooltip": "编辑",
+                            "actionType": "drawer",
+                            "drawer": {
+                                "position": "left",
+                                "size": "lg",
+                                "title": "编辑",
+                                "body": {
+                                    "type": "form",
+                                    "name": "sample-edit-form",
+                                    "api": "https://houtai.baidu.com/api/sample/$id",
+                                    "controls": [
+                                        {
+                                            "type": "text",
+                                            "name": "engine",
+                                            "label": "Engine",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "name": "browser",
+                                            "label": "Browser",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "name": "platform",
+                                            "label": "Platform(s)",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "name": "version",
+                                            "label": "Engine version"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "select",
+                                            "name": "grade",
+                                            "label": "CSS grade",
+                                            "options": [
+                                                "A",
+                                                "B",
+                                                "C",
+                                                "D",
+                                                "X"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "icon": "fa fa-times text-danger",
+                            "actionType": "ajax",
+                            "tooltip": "删除",
+                            "confirmText": "您确认要删除?",
+                            "api": "delete:https://houtai.baidu.com/api/sample/$id"
+                        }
+                    ],
+                    "toggled": true
+                }
+            ]
+        }
+    ]
+}
+);
+      })();
+    </script>
+  </body>
+</html>
